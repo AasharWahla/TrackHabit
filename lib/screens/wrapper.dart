@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tack_habit/screens/auth/login.dart';
 
 class Wrapper extends StatelessWidget {
   @override
@@ -11,9 +12,6 @@ class Wrapper extends StatelessWidget {
       ** I will not be adding authentication in the open source.
       So this will automatically take the user to log in screen.
      */
-    return Scaffold(
-      backgroundColor: Colors.green,
-      body: Container(),
-    );
+    return LoginScreen();
   }
 }
