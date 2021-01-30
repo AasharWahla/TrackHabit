@@ -13,8 +13,8 @@ class _LoginScreenState extends State<LoginScreen> {
   FocusNode _emailFocusNode;
   FocusNode _passwordFocusNode;
   bool _showPassword = false;
-  String email;
-  String password;
+  String email = "";
+  String password = "";
   @override
   void initState() {
     super.initState();
@@ -118,11 +118,14 @@ class _LoginScreenState extends State<LoginScreen> {
                           decoration: InputDecoration(
                             prefixIcon: Icon(
                               Icons.email,
+                              color: (_emailFocusNode.hasFocus)
+                                  ? Colors.black
+                                  : Colors.grey,
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 width: 2,
-                                color: Colors.amber,
+                                color: Colors.black,
                               ),
                             ),
                             labelText: (_emailFocusNode.hasFocus)
@@ -130,7 +133,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 : "\te-mail",
                             labelStyle: GoogleFonts.varelaRound(
                               color: (_emailFocusNode.hasFocus)
-                                  ? Colors.red
+                                  ? Colors.black
                                   : Colors.grey,
                               fontSize: 25,
                             ),
@@ -152,11 +155,14 @@ class _LoginScreenState extends State<LoginScreen> {
                           decoration: InputDecoration(
                             prefixIcon: Icon(
                               Icons.vpn_key,
+                              color: (_passwordFocusNode.hasFocus)
+                                  ? Colors.black
+                                  : Colors.grey,
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 width: 2,
-                                color: Colors.amber,
+                                color: Colors.black,
                               ),
                             ),
                             suffixIcon: GestureDetector(
@@ -167,16 +173,21 @@ class _LoginScreenState extends State<LoginScreen> {
                                   },
                                 );
                               },
-                              child: Icon((_showPassword)
-                                  ? Icons.visibility_off
-                                  : Icons.visibility),
+                              child: Icon(
+                                (_showPassword)
+                                    ? Icons.visibility_off
+                                    : Icons.visibility,
+                                color: (_showPassword)
+                                    ? Colors.black
+                                    : Colors.grey,
+                              ),
                             ),
                             labelText: (_passwordFocusNode.hasFocus)
                                 ? "password"
                                 : "\tpassword",
                             labelStyle: GoogleFonts.varelaRound(
                               color: (_passwordFocusNode.hasFocus)
-                                  ? Colors.red
+                                  ? Colors.black
                                   : Colors.grey,
                               fontSize: 25,
                             ),
@@ -194,9 +205,80 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             // forget password
+            Container(
+              height: height * .05,
+              width: width * .8,
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    "Forgot Password?",
+                    style: GoogleFonts.varelaRound(
+                      color: Colors.grey,
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+              ),
+            ),
             //login
+            InkWell(
+              child: Container(
+                margin: EdgeInsets.only(
+                  top: height * .04,
+                ),
+                height: height * .06,
+                width: width * .6,
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                ),
+                padding: EdgeInsets.all(10),
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    "Log In",
+                    style: GoogleFonts.varelaRound(
+                      fontSize: 40,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+            ),
             // space
+            SizedBox(
+              height: height * .1,
+            ),
             // signup
+            InkWell(
+              child: Container(
+                margin: EdgeInsets.only(
+                  top: height * .02,
+                  bottom: height * .02,
+                ),
+                height: height * .06,
+                width: width * .6,
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                ),
+                padding: EdgeInsets.all(10),
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    "Do not have an account? Sign Up!",
+                    style: GoogleFonts.varelaRound(
+                      fontSize: 40,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            // space
+            SizedBox(
+              height: height * .05,
+            ),
           ],
         ),
       ),
