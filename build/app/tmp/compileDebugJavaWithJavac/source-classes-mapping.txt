@@ -1,4 +1,0 @@
-io/flutter/plugins/GeneratedPluginRegistrant.java
- io.flutter.plugins.GeneratedPluginRegistrant
-com/example/tack_habit/BuildConfig.java
- com.example.tack_habit.BuildConfig
