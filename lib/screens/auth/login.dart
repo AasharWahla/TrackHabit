@@ -1,6 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tack_habit/screens/auth/forgotPass.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -205,18 +206,36 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             // forget password
-            Container(
-              height: height * .05,
-              width: width * .8,
-              child: Align(
-                alignment: Alignment.centerRight,
-                child: FittedBox(
-                  fit: BoxFit.scaleDown,
-                  child: Text(
-                    "Forgot Password?",
-                    style: GoogleFonts.varelaRound(
-                      color: Colors.grey,
-                      fontSize: 20,
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) {
+                      return ForgotPass();
+                    },
+                    transitionsBuilder:
+                        (context, animation, secondaryAnimation, child) {
+                      return FadeTransition(
+                        opacity: animation,
+                        child: child,
+                      );
+                    },
+                  ),
+                );
+              },
+              child: Container(
+                height: height * .05,
+                width: width * .8,
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      "Forgot Password?",
+                      style: GoogleFonts.varelaRound(
+                        color: Colors.grey,
+                        fontSize: 20,
+                      ),
                     ),
                   ),
                 ),
