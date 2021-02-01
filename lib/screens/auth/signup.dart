@@ -1,39 +1,54 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:tack_habit/screens/auth/forgotPass.dart';
-import 'package:tack_habit/screens/auth/signup.dart';
 
-class LoginScreen extends StatefulWidget {
+class SignUpScreen extends StatefulWidget {
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _SignUpScreenState createState() => _SignUpScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   double height;
   double width;
   FocusNode _emailFocusNode;
   FocusNode _passwordFocusNode;
+  FocusNode _nameFocusNode;
+  FocusNode _confirmPasswordNode;
   bool _showPassword = false;
   String email = "";
   String password = "";
   @override
   void initState() {
     super.initState();
+    _nameFocusNode = FocusNode();
     _emailFocusNode = FocusNode();
     _passwordFocusNode = FocusNode();
+    _confirmPasswordNode = FocusNode();
   }
 
   @override
   void dispose() {
     _emailFocusNode.dispose();
     _passwordFocusNode.dispose();
+    _nameFocusNode.dispose();
+    _confirmPasswordNode.dispose();
     super.dispose();
   }
 
   void _requestEmailFocus() {
     setState(() {
       FocusScope.of(context).requestFocus(_emailFocusNode);
+    });
+  }
+
+  void _requestNameFocus() {
+    setState(() {
+      FocusScope.of(context).requestFocus(_nameFocusNode);
+    });
+  }
+
+  void _requestConfirmPasswordNode() {
+    setState(() {
+      FocusScope.of(context).requestFocus(_confirmPasswordNode);
     });
   }
 
@@ -49,43 +64,18 @@ class _LoginScreenState extends State<LoginScreen> {
     height = MediaQuery.of(context).size.height;
     width = MediaQuery.of(context).size.width;
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        iconTheme: IconThemeData(color: Colors.black),
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Header Spacer
             SizedBox(
-              height: height * .05,
               width: width,
             ),
-            // Animated Text
-            Container(
-              height: height * .1,
-              width: width,
-              padding: EdgeInsets.only(right: width * .15),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  SizedBox(width: 20.0, height: 100.0),
-                  RotateAnimatedTextKit(
-                    repeatForever: true,
-                    text: ["BREAK", "MAKE", "TRACK"],
-                    textStyle: GoogleFonts.varelaRound(
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.start,
-                  ),
-                  SizedBox(width: 20.0, height: 100.0),
-                  Text(
-                    "Habbit",
-                    style: GoogleFonts.varelaRound(
-                      fontSize: 43,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            // Simple Text
+            // Start your journey with us - Text
             Container(
               height: height * .1,
               width: width * .9,
@@ -93,24 +83,77 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: FittedBox(
                   fit: BoxFit.scaleDown,
                   child: Text(
-                    "Login to Start your Journey!",
+                    "Start Your Journey with Us!",
                     style: GoogleFonts.varelaRound(
                       fontSize: 40,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
               ),
             ),
-            // Login form
+            // SignUp Text
+            Container(
+              height: height * .1,
+              width: width * .9,
+              child: Center(
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    "SignUp!",
+                    style: GoogleFonts.varelaRound(
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            // SignUp form
             Container(
               width: width * .9,
-              height: height * .3,
+              height: height * .4,
               child: Center(
                 child: Form(
                   key: _formKey,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
+                      Container(
+                        decoration: BoxDecoration(),
+                        child: TextFormField(
+                          focusNode: _nameFocusNode,
+                          onTap: _requestNameFocus,
+                          style: GoogleFonts.varelaRound(),
+                          decoration: InputDecoration(
+                            prefixIcon: Icon(
+                              Icons.person,
+                              color: (_nameFocusNode.hasFocus)
+                                  ? Colors.black
+                                  : Colors.grey,
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                width: 2,
+                                color: Colors.black,
+                              ),
+                            ),
+                            labelText:
+                                (_nameFocusNode.hasFocus) ? "name" : "\tname",
+                            labelStyle: GoogleFonts.varelaRound(
+                              color: (_emailFocusNode.hasFocus)
+                                  ? Colors.black
+                                  : Colors.grey,
+                              fontSize: 25,
+                            ),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                width: 2,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
                       Container(
                         decoration: BoxDecoration(),
                         child: TextFormField(
@@ -201,47 +244,66 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                       ),
+                      Container(
+                        decoration: BoxDecoration(),
+                        child: TextFormField(
+                          obscureText: (_showPassword) ? false : true,
+                          focusNode: _confirmPasswordNode,
+                          onTap: _requestConfirmPasswordNode,
+                          style: GoogleFonts.varelaRound(),
+                          decoration: InputDecoration(
+                            prefixIcon: Icon(
+                              Icons.vpn_key,
+                              color: (_confirmPasswordNode.hasFocus)
+                                  ? Colors.black
+                                  : Colors.grey,
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                width: 2,
+                                color: Colors.black,
+                              ),
+                            ),
+                            suffixIcon: GestureDetector(
+                              onTap: () {
+                                setState(
+                                  () {
+                                    _showPassword = !_showPassword;
+                                  },
+                                );
+                              },
+                              child: Icon(
+                                (_showPassword)
+                                    ? Icons.visibility_off
+                                    : Icons.visibility,
+                                color: (_showPassword)
+                                    ? Colors.black
+                                    : Colors.grey,
+                              ),
+                            ),
+                            labelText: (_confirmPasswordNode.hasFocus)
+                                ? "confirm password"
+                                : "\tconfirm password",
+                            labelStyle: GoogleFonts.varelaRound(
+                              color: (_passwordFocusNode.hasFocus)
+                                  ? Colors.black
+                                  : Colors.grey,
+                              fontSize: 25,
+                            ),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                width: 2,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
               ),
             ),
-            // forget password
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context).push(
-                  PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) {
-                      return ForgotPass();
-                    },
-                    transitionsBuilder:
-                        (context, animation, secondaryAnimation, child) {
-                      return FadeTransition(
-                        opacity: animation,
-                        child: child,
-                      );
-                    },
-                  ),
-                );
-              },
-              child: Container(
-                height: height * .05,
-                width: width * .8,
-                child: Align(
-                  alignment: Alignment.centerRight,
-                  child: FittedBox(
-                    fit: BoxFit.scaleDown,
-                    child: Text(
-                      "Forgot Password?",
-                      style: GoogleFonts.varelaRound(
-                        color: Colors.grey,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
+
             //login
             InkWell(
               child: Container(
@@ -257,7 +319,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: FittedBox(
                   fit: BoxFit.scaleDown,
                   child: Text(
-                    "Log In",
+                    "Sign Up",
                     style: GoogleFonts.varelaRound(
                       fontSize: 40,
                       color: Colors.white,
@@ -268,26 +330,10 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             // space
             SizedBox(
-              height: height * .1,
+              height: height * .05,
             ),
             // signup
             InkWell(
-              onTap: () {
-                Navigator.of(context).push(
-                  PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) {
-                      return SignUpScreen();
-                    },
-                    transitionsBuilder:
-                        (context, animation, secondaryAnimation, child) {
-                      return FadeTransition(
-                        opacity: animation,
-                        child: child,
-                      );
-                    },
-                  ),
-                );
-              },
               child: Container(
                 margin: EdgeInsets.only(
                   top: height * .02,
@@ -302,7 +348,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: FittedBox(
                   fit: BoxFit.scaleDown,
                   child: Text(
-                    "Do not have an account? Sign Up!",
+                    "Already have an accout? Log In!",
                     style: GoogleFonts.varelaRound(
                       fontSize: 40,
                       color: Colors.white,
@@ -322,20 +368,12 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 }
 
+
 /*
-
-  h => height of the screen
-  w => width of the screen
-
-  Structure of the screen:
-    0- Space h*.05
-    1- Animated Text  h*.1
-    2- Login to Start Your Journey h*.05
-    3- Login Form h*.3
-    4- Forgot Password h*.05
-    5- Login h*.1
-    6- Space h*.2
-    7- Sign up h*.1
-    8- Space  h*.05
-
+  Layout of the screen
+  Text: Start your journey with us
+  Text: SignUp
+  Form: Signup Form
+  Button: SignUp Button
+  Button: Already have an account sign in.
 */
