@@ -17,6 +17,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
     height = MediaQuery.of(context).size.height;
     width = MediaQuery.of(context).size.width;
     return AnimatedBottomNavigationBar(
+      height: height * .08,
       icons: [
         Icons.spellcheck_rounded,
         Icons.insert_chart,
