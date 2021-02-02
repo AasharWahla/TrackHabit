@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tack_habit/screens/auth/forgotPass.dart';
 import 'package:tack_habit/screens/auth/signup.dart';
+import 'package:tack_habit/screens/home.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -244,6 +245,22 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             //login
             InkWell(
+              onTap: () {
+                Navigator.of(context).push(
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) {
+                      return HomeScreen();
+                    },
+                    transitionsBuilder:
+                        (context, animation, secondaryAnimation, child) {
+                      return FadeTransition(
+                        opacity: animation,
+                        child: child,
+                      );
+                    },
+                  ),
+                );
+              },
               child: Container(
                 margin: EdgeInsets.only(
                   top: height * .04,
