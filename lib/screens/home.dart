@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:tack_habit/screens/addHabbit.dart';
 import 'package:tack_habit/widgets/bottomNavigation.dart';
 
@@ -36,13 +37,31 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      backgroundColor: Colors.amber,
+      backgroundColor: Colors.white,
       bottomNavigationBar: BottomNavigation(0),
       body: Container(
+        padding: EdgeInsets.only(top: height * 0.05),
         height: height * .9,
         width: width,
-        child: Center(
-          child: Text("Home Screen."),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              padding: EdgeInsets.only(left: width * .05),
+              height: height * .05,
+              width: width * .6,
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  "Your Day So Far",
+                  style: GoogleFonts.varelaRound(
+                    fontSize: 40,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

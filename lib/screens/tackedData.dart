@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:tack_habit/widgets/bottomNavigation.dart';
 
 class TrackedDataScreen extends StatefulWidget {
@@ -22,13 +23,31 @@ class _TrackedDataScreenState extends State<TrackedDataScreen> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      backgroundColor: Colors.amber,
+      backgroundColor: Colors.white,
       bottomNavigationBar: BottomNavigation(1),
       body: Container(
+        padding: EdgeInsets.only(top: height * 0.05),
         height: height * .9,
         width: width,
-        child: Center(
-          child: Text("Tracked Data Screen."),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              padding: EdgeInsets.only(left: width * .05),
+              height: height * .05,
+              width: width * .6,
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  "Your Progress",
+                  style: GoogleFonts.varelaRound(
+                    fontSize: 40,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

@@ -22,6 +22,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
         Icons.spellcheck_rounded,
         Icons.insert_chart,
       ],
+      elevation: 30,
       iconSize: height * 0.035,
       leftCornerRadius: 32,
       rightCornerRadius: 32,
