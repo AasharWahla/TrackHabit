@@ -28,10 +28,11 @@ dependencies:
   animated_text_kit: ^3.1.0
   flutter_spinkit: "^4.1.2"
   animated_bottom_navigation_bar: ^0.2.1
+  rich_alert: ^0.1.32
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^0.1.2
 
 dev_dependencies:
   flutter_test:
@@ -40,6 +41,7 @@ dev_dependencies:
     sdk: flutter
   flutter_native_splash: ^0.2.9
   flutter_launcher_icons: ^0.8.1
+
 flutter_icons:
   android: "launcher_icon"
   ios: true
