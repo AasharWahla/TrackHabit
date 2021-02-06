@@ -29,6 +29,11 @@ dependencies:
   flutter_spinkit: "^4.1.2"
   animated_bottom_navigation_bar: ^0.2.1
   rich_alert: ^0.1.32
+  provider: ^4.3.3
+  cloud_firestore: ^0.16.0
+  firebase_core: ^0.7.0
+  firebase_auth: ^0.20.0+1
+  rflutter_alert: ^1.1.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
