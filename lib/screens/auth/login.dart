@@ -18,6 +18,8 @@ class _LoginScreenState extends State<LoginScreen> {
   bool _showPassword = false;
   String email = "";
   String password = "";
+  final _formKey = GlobalKey<FormState>();
+
   @override
   void initState() {
     super.initState();
@@ -44,7 +46,6 @@ class _LoginScreenState extends State<LoginScreen> {
     });
   }
 
-  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     height = MediaQuery.of(context).size.height;
