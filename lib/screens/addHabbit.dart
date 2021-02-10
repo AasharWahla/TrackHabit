@@ -185,7 +185,7 @@ class _AddHabbitScreenState extends State<AddHabbitScreen> {
                         fit: BoxFit.scaleDown,
                         child: Text(
                           "I would like to get notification",
-                          style: TextStyle(
+                          style: GoogleFonts.varelaRound(
                             color: Colors.white,
                             fontSize: 20,
                           ),
@@ -249,7 +249,7 @@ class _AddHabbitScreenState extends State<AddHabbitScreen> {
                               fit: BoxFit.scaleDown,
                               child: Text(
                                 mapKey,
-                                style: TextStyle(
+                                style: GoogleFonts.varelaRound(
                                   fontSize: 20,
                                   color: (weekDay[mapKey])
                                       ? Colors.black
@@ -268,12 +268,64 @@ class _AddHabbitScreenState extends State<AddHabbitScreen> {
                   height: height * .1,
                   width: width * .9,
                   child: Row(
-                    children: [],
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        width: width * .5,
+                        child: FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: Text(
+                            "Select Time of Notification",
+                            style: GoogleFonts.varelaRound(
+                              color: Colors.white,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: width * .4,
+                        child: FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: Text(
+                            "Selected Time",
+                            style: GoogleFonts.varelaRound(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 // space h*.15
+                SizedBox(
+                  height: height * .1,
+                ),
                 // Save h*.1
+                Container(
+                  height: height * .07,
+                  width: width * .9,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Center(
+                    child: Text(
+                      "Save",
+                      style: GoogleFonts.varelaRound(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30),
+                    ),
+                  ),
+                ),
                 // space h*.05
+                SizedBox(
+                  height: height * .05,
+                ),
               ],
             ),
           ),
