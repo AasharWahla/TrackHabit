@@ -11,4 +11,5 @@ There are many things that I will add in the project which are as follow:
  7. Graphs
  8. Beautiful Animations
 
-I will start working on the project from **27 January, 2020** and hopefully the project will be completed in less than a month.
+I started working on the project from **27 January, 2020** and hopefully the project will be completed in less than a month.
+
