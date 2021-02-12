@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class AddHabbitScreen extends StatefulWidget {
+class AddHabitScreen extends StatefulWidget {
   @override
-  _AddHabbitScreenState createState() => _AddHabbitScreenState();
+  _AddHabitScreenState createState() => _AddHabitScreenState();
 }
 
-class _AddHabbitScreenState extends State<AddHabbitScreen> {
+class _AddHabitScreenState extends State<AddHabitScreen> {
   double height, width;
   final Key _habitFormKey = GlobalKey<FormState>();
   bool showNotification = false;
@@ -81,14 +81,14 @@ class _AddHabbitScreenState extends State<AddHabbitScreen> {
                 SizedBox(
                   width: width,
                 ),
-                // Add your habbit h * .1
+                // Add your habit h * .1
                 Container(
                   height: height * .07,
                   width: width * .9,
                   child: FittedBox(
                     fit: BoxFit.scaleDown,
                     child: Text(
-                      "Add New Habbit",
+                      "Add New Habit",
                       style: GoogleFonts.varelaRound(
                         fontSize: 35,
                         color: Colors.white,
@@ -99,7 +99,7 @@ class _AddHabbitScreenState extends State<AddHabbitScreen> {
                     bottom: height * .03,
                   ),
                 ),
-                // Form h*.2 -> habbit name - description (optional)
+                // Form h*.2 -> habit name - description (optional)
                 Container(
                   height: height * .2,
                   width: width * .9,

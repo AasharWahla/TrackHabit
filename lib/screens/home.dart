@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:tack_habit/screens/addHabbit.dart';
+import 'package:tack_habit/screens/addHabit.dart';
 import 'package:tack_habit/widgets/bottomNavigation.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -10,7 +10,7 @@ class HomeScreen extends StatefulWidget {
 
 /*
   The preselcted screen will be today.
-  In the center of the bottom navigation bar there will be add new habbit.
+  In the center of the bottom navigation bar there will be add new habit.
   At the right will be past record.
 */
 
@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
         onPressed: () {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => AddHabbitScreen(),
+              builder: (context) => AddHabitScreen(),
             ),
           );
         },

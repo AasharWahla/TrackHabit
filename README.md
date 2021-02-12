@@ -2,11 +2,11 @@ Hi,
 My name is **Aashar Wahla**, and I am full stack flutter developer for over 4 years. And I am building a project called **HabitTracker**.
 There are many things that I will add in the project which are as follow:
 
- 1. Multiple habbit
+ 1. Multiple habit
  2. User authentication using email & password
- 3. Notification Time Setter for each habbit
+ 3. Notification Time Setter for each habit
  4. Firebase Firestore - Realtime Database
- 5. Track user habbit
+ 5. Track user habit
  6. No ads and premium version
  7. Graphs
  8. Beautiful Animations

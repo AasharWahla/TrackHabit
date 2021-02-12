@@ -79,7 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   SizedBox(width: 20.0, height: 100.0),
                   Text(
-                    "Habbit",
+                    "Habit",
                     style: GoogleFonts.varelaRound(
                       fontSize: 43,
                     ),
