@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tack_habit/widgets/bottomNavigation.dart';
 
+import 'addHabit.dart';
+
 class TrackedDataScreen extends StatefulWidget {
   @override
   _TrackedDataScreenState createState() => _TrackedDataScreenState();
@@ -15,7 +17,14 @@ class _TrackedDataScreenState extends State<TrackedDataScreen> {
     width = MediaQuery.of(context).size.width;
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        heroTag: "addTask",
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => AddHabitScreen(),
+            ),
+          );
+        },
         backgroundColor: Colors.black,
         child: Icon(
           Icons.add_chart,

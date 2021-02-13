@@ -40,14 +40,14 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Colors.white,
       bottomNavigationBar: BottomNavigation(0),
       body: Container(
-        padding: EdgeInsets.only(top: height * 0.05),
+        padding: EdgeInsets.only(top: height * 0.05, left: width * .05),
         height: height * .9,
         width: width,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Your Day So Far - Text - h * 0.05
             Container(
-              padding: EdgeInsets.only(left: width * .05),
               height: height * .05,
               width: width * .6,
               child: FittedBox(
@@ -59,6 +59,50 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: Colors.black,
                   ),
                 ),
+              ),
+            ),
+
+            // Random Insipiration Quote - Regarding Book h*.15
+            Container(
+              width: width * .9,
+              margin: EdgeInsets.only(
+                top: height * .02,
+              ),
+              height: height * .13,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(
+                  color: Colors.black,
+                  width: 3,
+                ),
+              ),
+            ),
+
+            // ! delete the widget below
+
+            SizedBox(
+              height: height * .05,
+            ),
+            // Check List
+            Container(
+              height: height * .1,
+              width: width * .9,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                border: Border.all(color: Colors.black, width: 2),
+              ),
+              child: Column(
+                children: [
+                  Center(
+                    child: Text(
+                      "Task Name",
+                      style: GoogleFonts.varelaRound(
+                        fontSize: 30,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
