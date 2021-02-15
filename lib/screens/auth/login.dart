@@ -269,6 +269,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: height * .06,
                 width: width * .6,
                 decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
                   color: Colors.black,
                 ),
                 padding: EdgeInsets.all(10),
@@ -314,6 +315,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: height * .06,
                 width: width * .6,
                 decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
                   color: Colors.black,
                 ),
                 padding: EdgeInsets.all(10),

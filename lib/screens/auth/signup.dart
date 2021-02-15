@@ -304,7 +304,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
             ),
 
-            //login
+            //sign up button
             InkWell(
               child: Container(
                 margin: EdgeInsets.only(
@@ -313,6 +313,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 height: height * .06,
                 width: width * .6,
                 decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
                   color: Colors.black,
                 ),
                 padding: EdgeInsets.all(10),
@@ -333,25 +334,28 @@ class _SignUpScreenState extends State<SignUpScreen> {
               height: height * .05,
             ),
             // signup
-            InkWell(
-              child: Container(
-                margin: EdgeInsets.only(
-                  top: height * .02,
-                  bottom: height * .02,
-                ),
-                height: height * .06,
-                width: width * .6,
-                decoration: BoxDecoration(
-                  color: Colors.black,
-                ),
-                padding: EdgeInsets.all(10),
-                child: FittedBox(
-                  fit: BoxFit.scaleDown,
-                  child: Text(
-                    "Already have an accout? Log In!",
-                    style: GoogleFonts.varelaRound(
-                      fontSize: 40,
-                      color: Colors.white,
+            Container(
+              height: height * .06,
+              width: width * .6,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.black,
+              ),
+              child: InkWell(
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.black,
+                  ),
+                  padding: EdgeInsets.all(10),
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      "Already have an accout? Log In!",
+                      style: GoogleFonts.varelaRound(
+                        fontSize: 40,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
