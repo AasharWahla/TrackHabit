@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tack_habit/screens/addHabit.dart';
 import 'package:tack_habit/widgets/bottomNavigation.dart';
+import 'package:tack_habit/widgets/customDrawer.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -21,6 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
     height = MediaQuery.of(context).size.height;
     width = MediaQuery.of(context).size.width;
     return Scaffold(
+      drawer: CustomDrawer(),
       floatingActionButton: FloatingActionButton(
         heroTag: "addTask",
         onPressed: () {
