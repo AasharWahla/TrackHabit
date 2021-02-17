@@ -13,3 +13,20 @@ There are many things that I will add in the project which are as follow:
 
 I started working on the project from **27 January, 2020** and hopefully the project will be completed in less than a month.
 
+List of external dependencies used in the project:
+
+
+ 1. google_fonts
+ 2. animated_text_kit
+ 3. flutter_spinkit
+ 4. animated_bottom_navigation_bar
+ 5. rich_alert
+ 6. provider
+ 7. cloud_firestore
+ 8. firebase_core
+ 9. firebase_auth
+ 10. rflutter_alert
+ 11. shared_preferences
+ 12. flutter_zoom_drawer
+ 13. flutter_native_splash
+ 14. flutter_launcher_icons
