@@ -15,7 +15,6 @@ I started working on the project from **27 January, 2020** and hopefully the pro
 
 List of external dependencies used in the project:
 
-
  1. google_fonts
  2. animated_text_kit
  3. flutter_spinkit
@@ -28,5 +27,5 @@ List of external dependencies used in the project:
  10. rflutter_alert
  11. shared_preferences
  12. flutter_zoom_drawer
- 13. flutter_native_splash
- 14. flutter_launcher_icons
+ 13. flutter_native_splash   --- Developer Dependency
+ 14. flutter_launcher_icons  --- Developer Dependency
