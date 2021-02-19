@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tack_habit/screens/addHabit.dart';
 import 'package:tack_habit/widgets/bottomNavigation.dart';
@@ -16,13 +17,22 @@ class HomeScreen extends StatefulWidget {
 */
 
 class _HomeScreenState extends State<HomeScreen> {
+  ZoomDrawerController _controller = ZoomDrawerController();
   double height, width;
   @override
   Widget build(BuildContext context) {
     height = MediaQuery.of(context).size.height;
     width = MediaQuery.of(context).size.width;
     return Scaffold(
-      drawer: CustomDrawer(),
+      appBar: AppBar(
+        title: Text("delete it."),
+      ),
+      drawer: ZoomDrawer(
+        controller: _controller,
+        menuScreen: HomeScreen(),
+        mainScreen: Cutsomer(),
+        slideWidth: 260,
+      ),
       floatingActionButton: FloatingActionButton(
         heroTag: "addTask",
         onPressed: () {
@@ -96,11 +106,16 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 children: [
                   Center(
-                    child: Text(
-                      "Task Name",
-                      style: GoogleFonts.varelaRound(
-                        fontSize: 30,
-                        color: Colors.black,
+                    child: GestureDetector(
+                      onTap: () {
+                        ZoomDrawer.of(context).open();
+                      },
+                      child: Text(
+                        "Task Name",
+                        style: GoogleFonts.varelaRound(
+                          fontSize: 30,
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                   ),

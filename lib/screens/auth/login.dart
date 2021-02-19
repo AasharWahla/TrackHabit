@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:tack_habit/screens/auth/forgotPass.dart';
 import 'package:tack_habit/screens/auth/signup.dart';
 import 'package:tack_habit/screens/home.dart';
+import 'package:tack_habit/screens/homeScreen.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -250,7 +251,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Navigator.of(context).push(
                   PageRouteBuilder(
                     pageBuilder: (context, animation, secondaryAnimation) {
-                      return HomeScreen();
+                      return HomeScreenDrawer();
                     },
                     transitionsBuilder:
                         (context, animation, secondaryAnimation, child) {
