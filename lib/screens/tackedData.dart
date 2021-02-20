@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tack_habit/widgets/bottomNavigation.dart';
+import 'package:tack_habit/widgets/customDrawer.dart';
 
 import 'addHabit.dart';
 
@@ -19,11 +21,13 @@ class _TrackedDataScreenState extends State<TrackedDataScreen> {
       floatingActionButton: FloatingActionButton(
         heroTag: "addTask",
         onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => AddHabitScreen(),
-            ),
-          );
+          ZoomDrawer.of(context).open();
+
+          // Navigator.of(context).push(
+          //   MaterialPageRoute(
+          //     builder: (context) => AddHabitScreen(),
+          //   ),
+          // );
         },
         backgroundColor: Colors.black,
         child: Icon(
@@ -59,6 +63,24 @@ class _TrackedDataScreenState extends State<TrackedDataScreen> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class TrackedDataDrawer extends StatefulWidget {
+  @override
+  _TrackedDataDrawerState createState() => _TrackedDataDrawerState();
+}
+
+class _TrackedDataDrawerState extends State<TrackedDataDrawer> {
+  @override
+  Widget build(BuildContext context) {
+    return ZoomDrawer(
+      menuScreen: CustomDrawerScreen(),
+      mainScreen: TrackedDataScreen(),
+      borderRadius: 24.0,
+      angle: 0.0,
+      slideWidth: MediaQuery.of(context).size.width * .5,
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:tack_habit/screens/home.dart';
+import 'package:tack_habit/screens/homeScreen.dart';
 import 'package:tack_habit/screens/tackedData.dart';
 
 class BottomNavigation extends StatefulWidget {
@@ -37,7 +38,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
             Navigator.of(context).pushAndRemoveUntil(
                 PageRouteBuilder(
                   pageBuilder: (context, animation, secondaryAnimation) {
-                    return HomeScreen();
+                    return HomeScreenDrawer();
                   },
                   transitionsBuilder:
                       (context, animation, secondaryAnimation, child) {
@@ -52,7 +53,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
             Navigator.of(context).pushAndRemoveUntil(
                 PageRouteBuilder(
                   pageBuilder: (context, animation, secondaryAnimation) {
-                    return TrackedDataScreen();
+                    return TrackedDataDrawer();
                   },
                   transitionsBuilder:
                       (context, animation, secondaryAnimation, child) {

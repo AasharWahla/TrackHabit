@@ -24,14 +24,11 @@ class _HomeScreenState extends State<HomeScreen> {
     height = MediaQuery.of(context).size.height;
     width = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: AppBar(
-        title: Text("delete it."),
-      ),
       drawer: ZoomDrawer(
         controller: _controller,
         menuScreen: HomeScreen(),
-        mainScreen: Cutsomer(),
-        slideWidth: 260,
+        mainScreen: CustomDrawerScreen(),
+        slideWidth: MediaQuery.of(context).size.width * .5,
       ),
       floatingActionButton: FloatingActionButton(
         heroTag: "addTask",

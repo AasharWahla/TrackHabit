@@ -13,8 +13,9 @@ class HomeScreenDrawer extends StatefulWidget {
 class _HomeScreenDrawerState extends State<HomeScreenDrawer> {
   @override
   Widget build(BuildContext context) {
+    print("in home screen drawer");
     return ZoomDrawer(
-      menuScreen: Cutsomer(),
+      menuScreen: CustomDrawerScreen(),
       mainScreen: HomeScreen(),
     );
   }
