@@ -107,6 +107,8 @@ class _CustomDrawerScreenState extends State<CustomDrawerScreen> {
                         ),
                       ),
                     ),
+                    SizedBox(height: height * .1),
+                    ThemeButton(),
                     Spacer(),
                     Container(
                       decoration: BoxDecoration(
@@ -182,6 +184,98 @@ class _CustomDrawerScreenState extends State<CustomDrawerScreen> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class ThemeButton extends StatefulWidget {
+  @override
+  _ThemeButtonState createState() => _ThemeButtonState();
+}
+
+class _ThemeButtonState extends State<ThemeButton> {
+  bool isLight = true;
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        setState(() {
+          isLight = !isLight;
+        });
+      },
+      child: Container(
+          width: MediaQuery.of(context).size.width * .2,
+          height: 50,
+          // color: Colors.blue,
+          child: (isLight)
+              ? Container(
+                  child: Stack(
+                    children: [
+                      Center(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.grey[400],
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(49),
+                            ),
+                          ),
+                          height: 10,
+                          width: MediaQuery.of(context).size.width * .2,
+                        ),
+                      ),
+                      Positioned(
+                        left: 5,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            shape: BoxShape.circle,
+                          ),
+                          child: Icon(
+                            Icons.wb_sunny_rounded,
+                            color: Colors.orange,
+                            size: 40,
+                          ),
+                          height: 50,
+                          width: 50,
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              : Container(
+                  child: Stack(
+                    children: [
+                      Center(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.grey[400],
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(49),
+                            ),
+                          ),
+                          height: 10,
+                          width: MediaQuery.of(context).size.width * .2,
+                        ),
+                      ),
+                      Positioned(
+                        right: 5,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.grey,
+                            shape: BoxShape.circle,
+                          ),
+                          child: Icon(
+                            Icons.nightlight_round,
+                            color: Colors.grey[800],
+                            size: 40,
+                          ),
+                          height: 50,
+                          width: 50,
+                        ),
+                      ),
+                    ],
+                  ),
+                )),
     );
   }
 }
