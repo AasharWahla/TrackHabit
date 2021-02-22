@@ -80,6 +80,8 @@ class _TrackedDataDrawerState extends State<TrackedDataDrawer> {
       mainScreen: TrackedDataScreen(),
       borderRadius: 24.0,
       angle: 0.0,
+      openCurve: Curves.easeIn,
+      closeCurve: Curves.easeInBack,
       slideWidth: MediaQuery.of(context).size.width * .5,
     );
   }

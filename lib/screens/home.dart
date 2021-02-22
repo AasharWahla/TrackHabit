@@ -125,3 +125,23 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
+class HomeScreenDrawer extends StatefulWidget {
+  @override
+  _HomeScreenDrawerState createState() => _HomeScreenDrawerState();
+}
+
+class _HomeScreenDrawerState extends State<HomeScreenDrawer> {
+  @override
+  Widget build(BuildContext context) {
+    return ZoomDrawer(
+      menuScreen: CustomDrawerScreen(),
+      mainScreen: HomeScreen(),
+      borderRadius: 24.0,
+      angle: 0.0,
+      openCurve: Curves.easeIn,
+      closeCurve: Curves.easeInBack,
+      slideWidth: MediaQuery.of(context).size.width * .5,
+    );
+  }
+}
