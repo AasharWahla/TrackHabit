@@ -1,3 +1,5 @@
+// ! This page is of no use and will be deleted after a while.
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Styling {

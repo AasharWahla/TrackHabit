@@ -1,7 +1,9 @@
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:tack_habit/screens/home.dart';
+import 'package:tack_habit/screens/provider/themeProvider.dart';
 
 class CustomDrawerScreen extends StatefulWidget {
   @override
@@ -202,80 +204,90 @@ class _ThemeButtonState extends State<ThemeButton> {
         setState(() {
           isLight = !isLight;
         });
+        if (isLight) {
+          Provider.of<ThemeProvider>(context, listen: false)
+              .changeThemeToDark();
+          print("changing to light");
+        } else {
+          Provider.of<ThemeProvider>(context, listen: false)
+              .changeThemeToLight();
+          print("changing to dark");
+        }
       },
       child: Container(
-          width: MediaQuery.of(context).size.width * .2,
-          height: 50,
-          // color: Colors.blue,
-          child: (isLight)
-              ? Container(
-                  child: Stack(
-                    children: [
-                      Center(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.grey[400],
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(49),
-                            ),
+        width: MediaQuery.of(context).size.width * .2,
+        height: 50,
+        // color: Colors.blue,
+        child: (isLight)
+            ? Container(
+                child: Stack(
+                  children: [
+                    Center(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.grey[400],
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(49),
                           ),
-                          height: 10,
-                          width: MediaQuery.of(context).size.width * .2,
                         ),
+                        height: 10,
+                        width: MediaQuery.of(context).size.width * .2,
                       ),
-                      Positioned(
-                        left: 5,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            shape: BoxShape.circle,
-                          ),
-                          child: Icon(
-                            Icons.wb_sunny_rounded,
-                            color: Colors.orange,
-                            size: 40,
-                          ),
-                          height: 50,
-                          width: 50,
+                    ),
+                    Positioned(
+                      left: 5,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          shape: BoxShape.circle,
                         ),
-                      ),
-                    ],
-                  ),
-                )
-              : Container(
-                  child: Stack(
-                    children: [
-                      Center(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.grey[400],
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(49),
-                            ),
-                          ),
-                          height: 10,
-                          width: MediaQuery.of(context).size.width * .2,
+                        child: Icon(
+                          Icons.wb_sunny_rounded,
+                          color: Colors.orange,
+                          size: 40,
                         ),
+                        height: 50,
+                        width: 50,
                       ),
-                      Positioned(
-                        right: 5,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.grey,
-                            shape: BoxShape.circle,
+                    ),
+                  ],
+                ),
+              )
+            : Container(
+                child: Stack(
+                  children: [
+                    Center(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.grey[400],
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(49),
                           ),
-                          child: Icon(
-                            Icons.nightlight_round,
-                            color: Colors.grey[800],
-                            size: 40,
-                          ),
-                          height: 50,
-                          width: 50,
                         ),
+                        height: 10,
+                        width: MediaQuery.of(context).size.width * .2,
                       ),
-                    ],
-                  ),
-                )),
+                    ),
+                    Positioned(
+                      right: 5,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.grey,
+                          shape: BoxShape.circle,
+                        ),
+                        child: Icon(
+                          Icons.nightlight_round,
+                          color: Colors.grey[800],
+                          size: 40,
+                        ),
+                        height: 50,
+                        width: 50,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+      ),
     );
   }
 }

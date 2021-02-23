@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tack_habit/screens/addHabit.dart';
+import 'package:tack_habit/screens/provider/themeProvider.dart';
 import 'package:tack_habit/widgets/bottomNavigation.dart';
 import 'package:tack_habit/widgets/customDrawer.dart';
 
@@ -10,17 +13,13 @@ class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-/*
-  The preselcted screen will be today.
-  In the center of the bottom navigation bar there will be add new habit.
-  At the right will be past record.
-*/
-
 class _HomeScreenState extends State<HomeScreen> {
+  int themeValue = 0;
   ZoomDrawerController _controller = ZoomDrawerController();
   double height, width;
   @override
   Widget build(BuildContext context) {
+    themeValue = Provider.of<ThemeProvider>(context).themeValue;
     height = MediaQuery.of(context).size.height;
     width = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -49,6 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Colors.white,
       bottomNavigationBar: BottomNavigation(0),
       body: Container(
+        color: (themeValue == 0) ? Colors.white : Colors.red,
         padding: EdgeInsets.only(top: height * 0.05, left: width * .05),
         height: height * .9,
         width: width,
