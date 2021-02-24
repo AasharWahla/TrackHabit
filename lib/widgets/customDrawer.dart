@@ -196,29 +196,26 @@ class ThemeButton extends StatefulWidget {
 }
 
 class _ThemeButtonState extends State<ThemeButton> {
-  bool isLight = true;
   @override
   Widget build(BuildContext context) {
+    int themeVal =
+        Provider.of<ThemeProvider>(context, listen: false).themeValue;
     return InkWell(
       onTap: () {
-        setState(() {
-          isLight = !isLight;
-        });
-        if (isLight) {
+        if (themeVal == 0) {
           Provider.of<ThemeProvider>(context, listen: false)
               .changeThemeToDark();
-          print("changing to light");
         } else {
           Provider.of<ThemeProvider>(context, listen: false)
               .changeThemeToLight();
-          print("changing to dark");
         }
+        setState(() {});
       },
       child: Container(
         width: MediaQuery.of(context).size.width * .2,
         height: 50,
         // color: Colors.blue,
-        child: (isLight)
+        child: (themeVal == 0)
             ? Container(
                 child: Stack(
                   children: [

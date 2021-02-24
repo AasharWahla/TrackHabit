@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tack_habit/screens/auth/login.dart';
+import 'package:tack_habit/screens/provider/themeProvider.dart';
 
 class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Provider.of<ThemeProvider>(context, listen: false).getCurrentTheme();
     /*
       Wrapper is the class which examine if the user is loged in or not and
       based on that will take the user to the desired screen. If the user will

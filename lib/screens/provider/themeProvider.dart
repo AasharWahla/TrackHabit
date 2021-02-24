@@ -7,17 +7,21 @@ class ThemeProvider extends ChangeNotifier {
     0 => Light theme
     1 => Dark theme
   */
-  ThemeProvider() {
-    getCurrentTheme();
-  }
 
   void getCurrentTheme() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
     int val = pref.getInt("theme");
     if (val == null) {
       pref.setInt("theme", 0);
+      print("setting shared preference -> theme = 0");
     } else {
-      themeValue = 1;
+      if (val == 1) {
+        themeValue = 1;
+        print("the value is already present in theme provider so returning 1");
+      } else {
+        themeValue = 0;
+        print("the value is already present in theme provider so returning 0");
+      }
     }
     notifyListeners();
   }
@@ -26,7 +30,7 @@ class ThemeProvider extends ChangeNotifier {
     SharedPreferences pref = await SharedPreferences.getInstance();
     pref.setInt("theme", 1);
     themeValue = 1;
-    debugPrint("changing theme to dark");
+    debugPrint("changing theme to dark ${pref.getInt("theme")}");
     notifyListeners();
   }
 
@@ -34,7 +38,7 @@ class ThemeProvider extends ChangeNotifier {
     SharedPreferences pref = await SharedPreferences.getInstance();
     pref.setInt("theme", 0);
     themeValue = 0;
-    debugPrint("changing theme to light");
+    debugPrint("changing theme to light ${pref.getInt("theme")}");
     notifyListeners();
   }
 }
