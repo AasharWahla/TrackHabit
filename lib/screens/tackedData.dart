@@ -37,7 +37,7 @@ class _TrackedDataScreenState extends State<TrackedDataScreen> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       backgroundColor: Colors.white,
-      bottomNavigationBar: BottomNavigation(1),
+      bottomNavigationBar: BottomNavigation(1, 0),
       body: Container(
         padding: EdgeInsets.only(top: height * 0.05),
         height: height * .9,

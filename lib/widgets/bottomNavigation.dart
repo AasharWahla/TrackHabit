@@ -4,8 +4,9 @@ import 'package:tack_habit/screens/home.dart';
 import 'package:tack_habit/screens/tackedData.dart';
 
 class BottomNavigation extends StatefulWidget {
+  final int themeValue;
   final int selectedScreen;
-  BottomNavigation(this.selectedScreen);
+  BottomNavigation(this.selectedScreen, this.themeValue);
   @override
   _BottomNavigationState createState() => _BottomNavigationState();
 }
@@ -14,6 +15,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
   double height, width;
   @override
   Widget build(BuildContext context) {
+    int themeValue = widget.themeValue;
     height = MediaQuery.of(context).size.height;
     width = MediaQuery.of(context).size.width;
     return AnimatedBottomNavigationBar(
@@ -22,6 +24,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
         Icons.spellcheck_rounded,
         Icons.insert_chart,
       ],
+      backgroundColor: (themeValue == 1) ? Colors.grey : Colors.white,
       elevation: 30,
       iconSize: height * 0.035,
       leftCornerRadius: 32,
@@ -29,8 +32,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
       gapLocation: GapLocation.center,
       notchSmoothness: NotchSmoothness.softEdge,
       activeIndex: widget.selectedScreen,
-      activeColor: Colors.black,
-      inactiveColor: Colors.grey,
+      activeColor: (themeValue == 0) ? Colors.black : Colors.white,
+      inactiveColor: Colors.blueGrey,
       onTap: (int selectedOption) {
         if (selectedOption != widget.selectedScreen) {
           if (selectedOption == 0) {

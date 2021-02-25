@@ -38,23 +38,24 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           );
         },
-        backgroundColor: Colors.black,
+        backgroundColor: (themeValue == 1) ? Colors.grey : Colors.white,
         child: Icon(
           Icons.add_chart,
+          color: Colors.black,
           size: height * .035,
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      backgroundColor: Colors.white,
-      bottomNavigationBar: BottomNavigation(0),
+      backgroundColor: (themeValue == 0) ? Colors.white : Colors.black,
+      bottomNavigationBar: BottomNavigation(0, themeValue),
       body: Container(
-        color: (themeValue == 0) ? Colors.white : Colors.red,
         padding: EdgeInsets.only(top: height * 0.05, left: width * .05),
         height: height * .9,
         width: width,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Your Day So Far - Text - h * 0.05
             // Your Day So Far - Text - h * 0.05
             Container(
               height: height * .05,
@@ -65,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   "Your Day So Far",
                   style: GoogleFonts.varelaRound(
                     fontSize: 40,
-                    color: Colors.black,
+                    color: (themeValue == 0) ? Colors.black : Colors.white,
                   ),
                 ),
               ),
@@ -81,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(
-                  color: Colors.black,
+                  color: (themeValue == 0) ? Colors.black : Colors.white,
                   width: 3,
                 ),
               ),
@@ -98,7 +99,9 @@ class _HomeScreenState extends State<HomeScreen> {
               width: width * .9,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                border: Border.all(color: Colors.black, width: 2),
+                border: Border.all(
+                    color: (themeValue == 0) ? Colors.black : Colors.white,
+                    width: 2),
               ),
               child: Column(
                 children: [
@@ -111,7 +114,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         "Task Name",
                         style: GoogleFonts.varelaRound(
                           fontSize: 30,
-                          color: Colors.black,
+                          color:
+                              (themeValue == 0) ? Colors.black : Colors.white,
                         ),
                       ),
                     ),
