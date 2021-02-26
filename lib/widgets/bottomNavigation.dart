@@ -2,6 +2,7 @@ import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.da
 import 'package:flutter/material.dart';
 import 'package:tack_habit/screens/home.dart';
 import 'package:tack_habit/screens/tackedData.dart';
+import 'package:tack_habit/style.dart';
 
 class BottomNavigation extends StatefulWidget {
   final int themeValue;
@@ -24,16 +25,22 @@ class _BottomNavigationState extends State<BottomNavigation> {
         Icons.spellcheck_rounded,
         Icons.insert_chart,
       ],
-      backgroundColor: (themeValue == 1) ? Colors.grey : Colors.white,
+      backgroundColor:
+          (themeValue == 1) ? darkBottomNavColor : lightBottomNavColor,
       elevation: 30,
+      splashColor: Colors.white,
       iconSize: height * 0.035,
       leftCornerRadius: 32,
       rightCornerRadius: 32,
       gapLocation: GapLocation.center,
       notchSmoothness: NotchSmoothness.softEdge,
       activeIndex: widget.selectedScreen,
-      activeColor: (themeValue == 0) ? Colors.black : Colors.white,
-      inactiveColor: Colors.blueGrey,
+      activeColor: (themeValue == 0)
+          ? lightBottomNavIconColorActive
+          : darkBottomNavIconColorActive,
+      inactiveColor: (themeValue == 0)
+          ? lightBottomNavIconColorInactive
+          : darkBottomNavIconColorInactive,
       onTap: (int selectedOption) {
         if (selectedOption != widget.selectedScreen) {
           if (selectedOption == 0) {

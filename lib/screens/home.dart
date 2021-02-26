@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tack_habit/screens/addHabit.dart';
 import 'package:tack_habit/screens/provider/themeProvider.dart';
+import 'package:tack_habit/style.dart';
 import 'package:tack_habit/widgets/bottomNavigation.dart';
 import 'package:tack_habit/widgets/customDrawer.dart';
 
@@ -38,15 +39,15 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           );
         },
-        backgroundColor: (themeValue == 1) ? Colors.grey : Colors.white,
+        backgroundColor: (themeValue == 1) ? darkFABColor : lightFABColor,
         child: Icon(
           Icons.add_chart,
-          color: Colors.black,
+          color: (themeValue == 1) ? darkFABIconColor : lightFABIconColor,
           size: height * .035,
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      backgroundColor: (themeValue == 0) ? Colors.white : Colors.black,
+      backgroundColor: (themeValue == 0) ? lightBgColor : darkBgColor,
       bottomNavigationBar: BottomNavigation(0, themeValue),
       body: Container(
         padding: EdgeInsets.only(top: height * 0.05, left: width * .05),
@@ -66,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   "Your Day So Far",
                   style: GoogleFonts.varelaRound(
                     fontSize: 40,
-                    color: (themeValue == 0) ? Colors.black : Colors.white,
+                    color: (themeValue == 0) ? lightFontColor : darkFontColor,
                   ),
                 ),
               ),
@@ -82,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(
-                  color: (themeValue == 0) ? Colors.black : Colors.white,
+                  color: (themeValue == 0) ? lightBorderColor : darkBorderColor,
                   width: 3,
                 ),
               ),
@@ -100,7 +101,8 @@ class _HomeScreenState extends State<HomeScreen> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 border: Border.all(
-                    color: (themeValue == 0) ? Colors.black : Colors.white,
+                    color:
+                        (themeValue == 0) ? lightBorderColor : darkBorderColor,
                     width: 2),
               ),
               child: Column(
@@ -114,8 +116,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         "Task Name",
                         style: GoogleFonts.varelaRound(
                           fontSize: 30,
-                          color:
-                              (themeValue == 0) ? Colors.black : Colors.white,
+                          color: (themeValue == 0)
+                              ? lightFontColor
+                              : darkFontColor,
                         ),
                       ),
                     ),
