@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:tack_habit/models/appUser.dart';
 
@@ -15,13 +16,11 @@ class FireAuth {
     if (user == null) {
       return null;
     }
-    AppUser toReturn;
-    toReturn = AppUser(
+    return AppUser(
       id: user.uid,
       email: user.email,
       name: user.displayName,
     );
-    return toReturn;
   }
 
   // sign in with email
@@ -42,12 +41,12 @@ class FireAuth {
   // sign up with email
   Future<AppUser> signUpWithEmailPassword(
       {String name, String email, String password}) async {
-    var toReturn;
+    UserCredential toReturn;
     try {
       toReturn = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
     } catch (e) {
-      print("error found while signing up new user.\t\t" + e.toString());
+      debugPrint("error found while signing up new user.\t\t  ${e.toString()}");
       throw Exception();
     }
     return _userFromFirebaseUser(toReturn.user);
