@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:tack_habit/screens/provider/themeProvider.dart';
+import 'package:tack_habit/style.dart';
 import 'package:tack_habit/widgets/bottomNavigation.dart';
 import 'package:tack_habit/widgets/customDrawer.dart';
 
@@ -12,12 +15,17 @@ class TrackedDataScreen extends StatefulWidget {
 }
 
 class _TrackedDataScreenState extends State<TrackedDataScreen> {
+  int themeValue = 0;
+
   double height, width;
   @override
   Widget build(BuildContext context) {
+    themeValue = Provider.of<ThemeProvider>(context).themeValue;
+
     height = MediaQuery.of(context).size.height;
     width = MediaQuery.of(context).size.width;
     return Scaffold(
+      backgroundColor: (themeValue == 0) ? lightBgColor : darkBgColor,
       floatingActionButton: FloatingActionButton(
         heroTag: "addTask",
         onPressed: () {
@@ -29,15 +37,15 @@ class _TrackedDataScreenState extends State<TrackedDataScreen> {
           //   ),
           // );
         },
-        backgroundColor: Colors.black,
+        backgroundColor: (themeValue == 1) ? darkFABColor : lightFABColor,
         child: Icon(
           Icons.add_chart,
+          color: (themeValue == 1) ? darkFABIconColor : lightFABIconColor,
           size: height * .035,
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      backgroundColor: Colors.white,
-      bottomNavigationBar: BottomNavigation(1, 0),
+      bottomNavigationBar: BottomNavigation(1, themeValue),
       body: Container(
         padding: EdgeInsets.only(top: height * 0.05),
         height: height * .9,
@@ -55,7 +63,7 @@ class _TrackedDataScreenState extends State<TrackedDataScreen> {
                   "Your Progress",
                   style: GoogleFonts.varelaRound(
                     fontSize: 40,
-                    color: Colors.black,
+                    color: (themeValue == 0) ? lightFontColor : darkFontColor,
                   ),
                 ),
               ),
