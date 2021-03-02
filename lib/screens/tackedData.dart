@@ -7,8 +7,6 @@ import 'package:tack_habit/style.dart';
 import 'package:tack_habit/widgets/bottomNavigation.dart';
 import 'package:tack_habit/widgets/customDrawer.dart';
 
-import 'addHabit.dart';
-
 class TrackedDataScreen extends StatefulWidget {
   @override
   _TrackedDataScreenState createState() => _TrackedDataScreenState();
@@ -30,12 +28,6 @@ class _TrackedDataScreenState extends State<TrackedDataScreen> {
         heroTag: "addTask",
         onPressed: () {
           ZoomDrawer.of(context).open();
-
-          // Navigator.of(context).push(
-          //   MaterialPageRoute(
-          //     builder: (context) => AddHabitScreen(),
-          //   ),
-          // );
         },
         backgroundColor: (themeValue == 1) ? darkFABColor : lightFABColor,
         child: Icon(

@@ -58,7 +58,7 @@ class _AddHabitScreenState extends State<AddHabitScreen> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.black,
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Colors.white,
         ),
       ),
@@ -85,6 +85,9 @@ class _AddHabitScreenState extends State<AddHabitScreen> {
                 Container(
                   height: height * .07,
                   width: width * .9,
+                  margin: EdgeInsets.only(
+                    bottom: height * .03,
+                  ),
                   child: FittedBox(
                     fit: BoxFit.scaleDown,
                     child: Text(
@@ -95,12 +98,9 @@ class _AddHabitScreenState extends State<AddHabitScreen> {
                       ),
                     ),
                   ),
-                  margin: EdgeInsets.only(
-                    bottom: height * .03,
-                  ),
                 ),
                 // Form h*.2 -> habit name - description (optional)
-                Container(
+                SizedBox(
                   height: height * .2,
                   width: width * .9,
                   child: Form(
@@ -108,13 +108,13 @@ class _AddHabitScreenState extends State<AddHabitScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
+                        SizedBox(
                           child: TextFormField(
                             focusNode: _habitNameFocusNode,
                             onTap: _requestHabitNameFocus,
                             style: GoogleFonts.varelaRound(),
                             decoration: InputDecoration(
-                              focusedBorder: OutlineInputBorder(
+                              focusedBorder: const OutlineInputBorder(
                                 borderSide: BorderSide(
                                   width: 2,
                                   color: Colors.white,
@@ -129,7 +129,7 @@ class _AddHabitScreenState extends State<AddHabitScreen> {
                                     : Colors.white70,
                                 fontSize: 25,
                               ),
-                              enabledBorder: OutlineInputBorder(
+                              enabledBorder: const OutlineInputBorder(
                                 borderSide: BorderSide(
                                   width: 2,
                                   color: Colors.white70,
@@ -138,7 +138,7 @@ class _AddHabitScreenState extends State<AddHabitScreen> {
                             ),
                           ),
                         ),
-                        Container(
+                        SizedBox(
                           child: TextFormField(
                             maxLines: 5,
                             minLines: 3,
@@ -146,7 +146,7 @@ class _AddHabitScreenState extends State<AddHabitScreen> {
                             onTap: _requestHabitDetailFocus,
                             style: GoogleFonts.varelaRound(),
                             decoration: InputDecoration(
-                              focusedBorder: OutlineInputBorder(
+                              focusedBorder: const OutlineInputBorder(
                                 borderSide: BorderSide(
                                   width: 2,
                                   color: Colors.white,
@@ -161,7 +161,7 @@ class _AddHabitScreenState extends State<AddHabitScreen> {
                                     : Colors.white70,
                                 fontSize: 25,
                               ),
-                              enabledBorder: OutlineInputBorder(
+                              enabledBorder: const OutlineInputBorder(
                                 borderSide: BorderSide(
                                   width: 2,
                                   color: Colors.white70,
@@ -197,7 +197,7 @@ class _AddHabitScreenState extends State<AddHabitScreen> {
                           width: 25,
                           decoration: BoxDecoration(
                             border: Border.all(color: Colors.white, width: 2),
-                            borderRadius: BorderRadius.all(
+                            borderRadius: const BorderRadius.all(
                               Radius.circular(5),
                             ),
                           ),
@@ -218,14 +218,14 @@ class _AddHabitScreenState extends State<AddHabitScreen> {
                   ),
                 ),
                 // Week notification - Days Notification h*.1
-                Container(
+                SizedBox(
                   height: height * .1,
                   width: width * .9,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: weekDay.length,
                     itemBuilder: (BuildContext context, int index) {
-                      String mapKey = weekDay.keys.elementAt(index);
+                      final String mapKey = weekDay.keys.elementAt(index);
                       return GestureDetector(
                         onTap: () {
                           setState(() {
@@ -264,13 +264,13 @@ class _AddHabitScreenState extends State<AddHabitScreen> {
                   ),
                 ),
                 // Select Notification time - h*.1
-                Container(
+                SizedBox(
                   height: height * .1,
                   width: width * .9,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
+                      SizedBox(
                         width: width * .5,
                         child: FittedBox(
                           fit: BoxFit.scaleDown,
@@ -283,7 +283,7 @@ class _AddHabitScreenState extends State<AddHabitScreen> {
                           ),
                         ),
                       ),
-                      Container(
+                      SizedBox(
                         width: width * .4,
                         child: FittedBox(
                           fit: BoxFit.scaleDown,
