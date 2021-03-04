@@ -1,10 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart';
 import 'package:tack_habit/models/appUser.dart';
 
 class FireAuth {
-  FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   // get user status
   Stream<AppUser> get user {
@@ -27,10 +26,10 @@ class FireAuth {
 
   Future<AppUser> signInWithEmailPassword(
       {String email, String password}) async {
-    var result = await _auth
+    final result = await _auth
         .signInWithEmailAndPassword(email: email, password: password)
         .catchError((error) {
-      print("returning null");
+      debugPrint("returning null");
       throw Exception();
     });
     return _userFromFirebaseUser(result.user);

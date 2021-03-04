@@ -7,7 +7,7 @@ import 'package:tack_habit/style.dart';
 class BottomNavigation extends StatefulWidget {
   final int themeValue;
   final int selectedScreen;
-  BottomNavigation(this.selectedScreen, this.themeValue);
+  const BottomNavigation(this.selectedScreen, this.themeValue);
   @override
   _BottomNavigationState createState() => _BottomNavigationState();
 }
@@ -16,7 +16,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
   double height, width;
   @override
   Widget build(BuildContext context) {
-    int themeValue = widget.themeValue;
+    final int themeValue = widget.themeValue;
     height = MediaQuery.of(context).size.height;
     width = MediaQuery.of(context).size.width;
     return AnimatedBottomNavigationBar(

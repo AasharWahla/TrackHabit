@@ -67,7 +67,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -76,7 +76,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               width: width,
             ),
             // Start your journey with us - Text
-            Container(
+            SizedBox(
               height: height * .1,
               width: width * .9,
               child: Center(
@@ -93,7 +93,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
             ),
             // SignUp Text
-            Container(
+            SizedBox(
               height: height * .1,
               width: width * .9,
               child: Center(
@@ -110,7 +110,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
             ),
             // SignUp form
-            Container(
+            SizedBox(
               width: width * .9,
               height: height * .4,
               child: Center(
@@ -119,8 +119,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Container(
-                        decoration: BoxDecoration(),
+                      SizedBox(
                         child: TextFormField(
                           focusNode: _nameFocusNode,
                           onTap: _requestNameFocus,
@@ -132,10 +131,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   ? Colors.black
                                   : Colors.grey,
                             ),
-                            focusedBorder: OutlineInputBorder(
+                            focusedBorder: const OutlineInputBorder(
                               borderSide: BorderSide(
                                 width: 2,
-                                color: Colors.black,
                               ),
                             ),
                             labelText:
@@ -146,7 +144,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   : Colors.grey,
                               fontSize: 25,
                             ),
-                            border: OutlineInputBorder(
+                            border: const OutlineInputBorder(
                               borderSide: BorderSide(
                                 width: 2,
                               ),
@@ -154,8 +152,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         ),
                       ),
-                      Container(
-                        decoration: BoxDecoration(),
+                      SizedBox(
                         child: TextFormField(
                           focusNode: _emailFocusNode,
                           onTap: _requestEmailFocus,
@@ -167,10 +164,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   ? Colors.black
                                   : Colors.grey,
                             ),
-                            focusedBorder: OutlineInputBorder(
+                            focusedBorder: const OutlineInputBorder(
                               borderSide: BorderSide(
                                 width: 2,
-                                color: Colors.black,
                               ),
                             ),
                             labelText: (_emailFocusNode.hasFocus)
@@ -182,7 +178,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   : Colors.grey,
                               fontSize: 25,
                             ),
-                            border: OutlineInputBorder(
+                            border: const OutlineInputBorder(
                               borderSide: BorderSide(
                                 width: 2,
                               ),
@@ -190,10 +186,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         ),
                       ),
-                      Container(
-                        decoration: BoxDecoration(),
+                      SizedBox(
                         child: TextFormField(
-                          obscureText: (_showPassword) ? false : true,
+                          obscureText: !_showPassword,
                           focusNode: _passwordFocusNode,
                           onTap: _requestPasswordFocus,
                           style: GoogleFonts.varelaRound(),
@@ -204,10 +199,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   ? Colors.black
                                   : Colors.grey,
                             ),
-                            focusedBorder: OutlineInputBorder(
+                            focusedBorder: const OutlineInputBorder(
                               borderSide: BorderSide(
                                 width: 2,
-                                color: Colors.black,
                               ),
                             ),
                             suffixIcon: GestureDetector(
@@ -219,12 +213,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 );
                               },
                               child: Icon(
-                                (_showPassword)
+                                _showPassword
                                     ? Icons.visibility_off
                                     : Icons.visibility,
-                                color: (_showPassword)
-                                    ? Colors.black
-                                    : Colors.grey,
+                                color:
+                                    _showPassword ? Colors.black : Colors.grey,
                               ),
                             ),
                             labelText: (_passwordFocusNode.hasFocus)
@@ -236,7 +229,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   : Colors.grey,
                               fontSize: 25,
                             ),
-                            border: OutlineInputBorder(
+                            border: const OutlineInputBorder(
                               borderSide: BorderSide(
                                 width: 2,
                               ),
@@ -245,9 +238,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                       ),
                       Container(
-                        decoration: BoxDecoration(),
+                        decoration: const BoxDecoration(),
                         child: TextFormField(
-                          obscureText: (_showPassword) ? false : true,
+                          obscureText: !_showPassword,
                           focusNode: _confirmPasswordNode,
                           onTap: _requestConfirmPasswordNode,
                           style: GoogleFonts.varelaRound(),
@@ -258,10 +251,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   ? Colors.black
                                   : Colors.grey,
                             ),
-                            focusedBorder: OutlineInputBorder(
+                            focusedBorder: const OutlineInputBorder(
                               borderSide: BorderSide(
                                 width: 2,
-                                color: Colors.black,
                               ),
                             ),
                             suffixIcon: GestureDetector(
@@ -273,12 +265,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 );
                               },
                               child: Icon(
-                                (_showPassword)
+                                _showPassword
                                     ? Icons.visibility_off
                                     : Icons.visibility,
-                                color: (_showPassword)
-                                    ? Colors.black
-                                    : Colors.grey,
+                                color:
+                                    _showPassword ? Colors.black : Colors.grey,
                               ),
                             ),
                             labelText: (_confirmPasswordNode.hasFocus)
@@ -290,7 +281,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   : Colors.grey,
                               fontSize: 25,
                             ),
-                            border: OutlineInputBorder(
+                            border: const OutlineInputBorder(
                               borderSide: BorderSide(
                                 width: 2,
                               ),
@@ -316,7 +307,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.black,
                 ),
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 child: FittedBox(
                   fit: BoxFit.scaleDown,
                   child: Text(
@@ -347,7 +338,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     borderRadius: BorderRadius.circular(20),
                     color: Colors.black,
                   ),
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   child: FittedBox(
                     fit: BoxFit.scaleDown,
                     child: Text(

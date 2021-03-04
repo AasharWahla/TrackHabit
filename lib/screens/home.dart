@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tack_habit/screens/addHabit.dart';
 import 'package:tack_habit/screens/provider/themeProvider.dart';
 import 'package:tack_habit/style.dart';
@@ -16,7 +15,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int themeValue = 0;
-  ZoomDrawerController _controller = ZoomDrawerController();
+  final ZoomDrawerController _controller = ZoomDrawerController();
   double height, width;
   @override
   Widget build(BuildContext context) {
@@ -58,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             // Your Day So Far - Text - h * 0.05
             // Your Day So Far - Text - h * 0.05
-            Container(
+            SizedBox(
               height: height * .05,
               width: width * .6,
               child: FittedBox(

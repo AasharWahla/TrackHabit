@@ -8,34 +8,36 @@ class ThemeProvider extends ChangeNotifier {
     1 => Dark theme
   */
 
-  void getCurrentTheme() async {
-    SharedPreferences pref = await SharedPreferences.getInstance();
-    int val = pref.getInt("theme");
+  Future<void> getCurrentTheme() async {
+    final SharedPreferences pref = await SharedPreferences.getInstance();
+    final int val = pref.getInt("theme");
     if (val == null) {
       pref.setInt("theme", 0);
-      print("setting shared preference -> theme = 0");
+      debugPrint("setting shared preference -> theme = 0");
     } else {
       if (val == 1) {
         themeValue = 1;
-        print("the value is already present in theme provider so returning 1");
+        debugPrint(
+            "the value is already present in theme provider so returning 1");
       } else {
         themeValue = 0;
-        print("the value is already present in theme provider so returning 0");
+        debugPrint(
+            "the value is already present in theme provider so returning 0");
       }
     }
     notifyListeners();
   }
 
-  void changeThemeToDark() async {
-    SharedPreferences pref = await SharedPreferences.getInstance();
+  Future<void> changeThemeToDark() async {
+    final SharedPreferences pref = await SharedPreferences.getInstance();
     pref.setInt("theme", 1);
     themeValue = 1;
     debugPrint("changing theme to dark ${pref.getInt("theme")}");
     notifyListeners();
   }
 
-  void changeThemeToLight() async {
-    SharedPreferences pref = await SharedPreferences.getInstance();
+  Future<void> changeThemeToLight() async {
+    final SharedPreferences pref = await SharedPreferences.getInstance();
     pref.setInt("theme", 0);
     themeValue = 0;
     debugPrint("changing theme to light ${pref.getInt("theme")}");

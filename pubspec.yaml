@@ -7,9 +7,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  google_fonts: ^1.1.2
-  animated_text_kit: ^3.1.0
   flutter_spinkit: "^4.1.2"
+  google_fonts: ^1.1.2
   animated_bottom_navigation_bar: ^0.2.1
   rich_alert: ^0.1.32
   provider: ^4.3.3
@@ -20,14 +19,14 @@ dependencies:
   shared_preferences: ^0.5.12+4
   flutter_zoom_drawer: ^1.0.4+1
   cupertino_icons: ^0.1.2
+  animated_text_kit: ^3.1.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_native_splash: ^0.2.9
-  flutter_launcher_icons: ^0.8.1
   lint: ^1.0.0
-
+  flutter_launcher_icons: ^0.8.1
+  flutter_native_splash: ^0.2.9
 
 flutter_icons:
   android: "launcher_icon"

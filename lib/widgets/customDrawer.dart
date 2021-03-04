@@ -2,7 +2,6 @@ import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:tack_habit/screens/home.dart';
 import 'package:tack_habit/screens/provider/themeProvider.dart';
 
 class CustomDrawerScreen extends StatefulWidget {
@@ -31,7 +30,7 @@ class _CustomDrawerScreenState extends State<CustomDrawerScreen> {
           children: [
             Align(
               alignment: Alignment.centerLeft,
-              child: Container(
+              child: SizedBox(
                 height: height,
                 width: width * .5,
                 child: Column(
@@ -41,7 +40,7 @@ class _CustomDrawerScreenState extends State<CustomDrawerScreen> {
                       width: width * .5,
                     ),
                     Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           shape: BoxShape.circle, color: Colors.grey),
                       height: height * .15,
                     ),
@@ -67,8 +66,8 @@ class _CustomDrawerScreenState extends State<CustomDrawerScreen> {
                         ),
                       ),
                       width: width * .45,
-                      padding:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 10, horizontal: 5),
                       child: Center(
                         child: FittedBox(
                           fit: BoxFit.scaleDown,
@@ -94,8 +93,8 @@ class _CustomDrawerScreenState extends State<CustomDrawerScreen> {
                         ),
                       ),
                       width: width * .45,
-                      padding:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 10, horizontal: 5),
                       child: Center(
                         child: FittedBox(
                           fit: BoxFit.scaleDown,
@@ -111,7 +110,7 @@ class _CustomDrawerScreenState extends State<CustomDrawerScreen> {
                     ),
                     SizedBox(height: height * .1),
                     ThemeButton(),
-                    Spacer(),
+                    const Spacer(),
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
@@ -121,8 +120,8 @@ class _CustomDrawerScreenState extends State<CustomDrawerScreen> {
                         ),
                       ),
                       width: width * .45,
-                      padding:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 10, horizontal: 5),
                       child: Center(
                         child: FittedBox(
                           fit: BoxFit.scaleDown,
@@ -147,12 +146,12 @@ class _CustomDrawerScreenState extends State<CustomDrawerScreen> {
               onTap: () {
                 ZoomDrawer.of(context).close();
               },
-              child: Container(
+              child: SizedBox(
                 width: width * .5,
                 child: Align(
                   alignment: Alignment.bottomRight,
                   child: Container(
-                    margin: EdgeInsets.only(right: 20, bottom: 30),
+                    margin: const EdgeInsets.only(right: 20, bottom: 30),
                     height: height * .05,
                     width: width * .3,
                     child: Container(
@@ -164,8 +163,8 @@ class _CustomDrawerScreenState extends State<CustomDrawerScreen> {
                         ),
                       ),
                       width: width * .45,
-                      padding:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 10, horizontal: 5),
                       child: Center(
                         child: FittedBox(
                           fit: BoxFit.scaleDown,
@@ -198,7 +197,7 @@ class ThemeButton extends StatefulWidget {
 class _ThemeButtonState extends State<ThemeButton> {
   @override
   Widget build(BuildContext context) {
-    int themeVal =
+    final int themeVal =
         Provider.of<ThemeProvider>(context, listen: false).themeValue;
     return InkWell(
       onTap: () {
@@ -211,78 +210,74 @@ class _ThemeButtonState extends State<ThemeButton> {
         }
         setState(() {});
       },
-      child: Container(
+      child: SizedBox(
         width: MediaQuery.of(context).size.width * .2,
         height: 50,
         // color: Colors.blue,
         child: (themeVal == 0)
-            ? Container(
-                child: Stack(
-                  children: [
-                    Center(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.grey[400],
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(49),
-                          ),
+            ? Stack(
+                children: [
+                  Center(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.grey[400],
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(49),
                         ),
-                        height: 10,
-                        width: MediaQuery.of(context).size.width * .2,
+                      ),
+                      height: 10,
+                      width: MediaQuery.of(context).size.width * .2,
+                    ),
+                  ),
+                  Positioned(
+                    left: 5,
+                    child: Container(
+                      height: 50,
+                      width: 50,
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(
+                        Icons.wb_sunny_rounded,
+                        color: Colors.orange,
+                        size: 40,
                       ),
                     ),
-                    Positioned(
-                      left: 5,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          shape: BoxShape.circle,
-                        ),
-                        child: Icon(
-                          Icons.wb_sunny_rounded,
-                          color: Colors.orange,
-                          size: 40,
-                        ),
-                        height: 50,
-                        width: 50,
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               )
-            : Container(
-                child: Stack(
-                  children: [
-                    Center(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.grey[400],
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(49),
-                          ),
+            : Stack(
+                children: [
+                  Center(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.grey[400],
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(49),
                         ),
-                        height: 10,
-                        width: MediaQuery.of(context).size.width * .2,
+                      ),
+                      height: 10,
+                      width: MediaQuery.of(context).size.width * .2,
+                    ),
+                  ),
+                  Positioned(
+                    right: 5,
+                    child: Container(
+                      height: 50,
+                      width: 50,
+                      decoration: const BoxDecoration(
+                        color: Colors.grey,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(
+                        Icons.nightlight_round,
+                        color: Colors.grey[800],
+                        size: 40,
                       ),
                     ),
-                    Positioned(
-                      right: 5,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.grey,
-                          shape: BoxShape.circle,
-                        ),
-                        child: Icon(
-                          Icons.nightlight_round,
-                          color: Colors.grey[800],
-                          size: 40,
-                        ),
-                        height: 50,
-                        width: 50,
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
       ),
     );

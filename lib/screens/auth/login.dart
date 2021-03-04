@@ -67,17 +67,16 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
-                  SizedBox(width: 20.0, height: 100.0),
+                  const SizedBox(width: 20.0, height: 100.0),
                   RotateAnimatedTextKit(
                     repeatForever: true,
-                    text: ["BREAK", "MAKE", "TRACK"],
+                    text: const ["BREAK", "MAKE", "TRACK"],
                     textStyle: GoogleFonts.varelaRound(
                       fontSize: 40,
                       fontWeight: FontWeight.bold,
                     ),
-                    textAlign: TextAlign.start,
                   ),
-                  SizedBox(width: 20.0, height: 100.0),
+                  const SizedBox(width: 20.0, height: 100.0),
                   Text(
                     "Habit",
                     style: GoogleFonts.varelaRound(
@@ -88,7 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             // Simple Text
-            Container(
+            SizedBox(
               height: height * .1,
               width: width * .9,
               child: Center(
@@ -104,7 +103,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             // Login form
-            Container(
+            SizedBox(
               width: width * .9,
               height: height * .3,
               child: Center(
@@ -113,92 +112,82 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Container(
-                        decoration: BoxDecoration(),
-                        child: TextFormField(
-                          focusNode: _emailFocusNode,
-                          onTap: _requestEmailFocus,
-                          style: GoogleFonts.varelaRound(),
-                          decoration: InputDecoration(
-                            prefixIcon: Icon(
-                              Icons.email,
-                              color: (_emailFocusNode.hasFocus)
-                                  ? Colors.black
-                                  : Colors.grey,
+                      TextFormField(
+                        focusNode: _emailFocusNode,
+                        onTap: _requestEmailFocus,
+                        style: GoogleFonts.varelaRound(),
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(
+                            Icons.email,
+                            color: (_emailFocusNode.hasFocus)
+                                ? Colors.black
+                                : Colors.grey,
+                          ),
+                          focusedBorder: const OutlineInputBorder(
+                            borderSide: BorderSide(
+                              width: 2,
                             ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                width: 2,
-                                color: Colors.black,
-                              ),
-                            ),
-                            labelText: (_emailFocusNode.hasFocus)
-                                ? "e-mail"
-                                : "\te-mail",
-                            labelStyle: GoogleFonts.varelaRound(
-                              color: (_emailFocusNode.hasFocus)
-                                  ? Colors.black
-                                  : Colors.grey,
-                              fontSize: 25,
-                            ),
-                            border: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                width: 2,
-                              ),
+                          ),
+                          labelText: (_emailFocusNode.hasFocus)
+                              ? "e-mail"
+                              : "\te-mail",
+                          labelStyle: GoogleFonts.varelaRound(
+                            color: (_emailFocusNode.hasFocus)
+                                ? Colors.black
+                                : Colors.grey,
+                            fontSize: 25,
+                          ),
+                          border: const OutlineInputBorder(
+                            borderSide: BorderSide(
+                              width: 2,
                             ),
                           ),
                         ),
                       ),
-                      Container(
-                        decoration: BoxDecoration(),
-                        child: TextFormField(
-                          obscureText: (_showPassword) ? false : true,
-                          focusNode: _passwordFocusNode,
-                          onTap: _requestPasswordFocus,
-                          style: GoogleFonts.varelaRound(),
-                          decoration: InputDecoration(
-                            prefixIcon: Icon(
-                              Icons.vpn_key,
-                              color: (_passwordFocusNode.hasFocus)
-                                  ? Colors.black
-                                  : Colors.grey,
+                      TextFormField(
+                        obscureText: !_showPassword,
+                        focusNode: _passwordFocusNode,
+                        onTap: _requestPasswordFocus,
+                        style: GoogleFonts.varelaRound(),
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(
+                            Icons.vpn_key,
+                            color: (_passwordFocusNode.hasFocus)
+                                ? Colors.black
+                                : Colors.grey,
+                          ),
+                          focusedBorder: const OutlineInputBorder(
+                            borderSide: BorderSide(
+                              width: 2,
                             ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                width: 2,
-                                color: Colors.black,
-                              ),
+                          ),
+                          suffixIcon: GestureDetector(
+                            onTap: () {
+                              setState(
+                                () {
+                                  _showPassword = !_showPassword;
+                                },
+                              );
+                            },
+                            child: Icon(
+                              _showPassword
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
+                              color: _showPassword ? Colors.black : Colors.grey,
                             ),
-                            suffixIcon: GestureDetector(
-                              onTap: () {
-                                setState(
-                                  () {
-                                    _showPassword = !_showPassword;
-                                  },
-                                );
-                              },
-                              child: Icon(
-                                (_showPassword)
-                                    ? Icons.visibility_off
-                                    : Icons.visibility,
-                                color: (_showPassword)
-                                    ? Colors.black
-                                    : Colors.grey,
-                              ),
-                            ),
-                            labelText: (_passwordFocusNode.hasFocus)
-                                ? "password"
-                                : "\tpassword",
-                            labelStyle: GoogleFonts.varelaRound(
-                              color: (_passwordFocusNode.hasFocus)
-                                  ? Colors.black
-                                  : Colors.grey,
-                              fontSize: 25,
-                            ),
-                            border: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                width: 2,
-                              ),
+                          ),
+                          labelText: (_passwordFocusNode.hasFocus)
+                              ? "password"
+                              : "\tpassword",
+                          labelStyle: GoogleFonts.varelaRound(
+                            color: (_passwordFocusNode.hasFocus)
+                                ? Colors.black
+                                : Colors.grey,
+                            fontSize: 25,
+                          ),
+                          border: const OutlineInputBorder(
+                            borderSide: BorderSide(
+                              width: 2,
                             ),
                           ),
                         ),
@@ -226,7 +215,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 );
               },
-              child: Container(
+              child: SizedBox(
                 height: height * .05,
                 width: width * .8,
                 child: Align(
@@ -272,7 +261,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.black,
                 ),
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 child: FittedBox(
                   fit: BoxFit.scaleDown,
                   child: Text(
@@ -318,7 +307,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.black,
                 ),
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 child: FittedBox(
                   fit: BoxFit.scaleDown,
                   child: Text(

@@ -12,7 +12,7 @@ class _AddHabitScreenState extends State<AddHabitScreen> {
   bool showNotification = false;
   FocusNode _habitNameFocusNode;
   FocusNode _habitDetailFocusNode;
-  var weekDay = {
+  Map<String, bool> weekDay = {
     "Mo": false,
     "Tu": false,
     "We": false,
@@ -175,7 +175,7 @@ class _AddHabitScreenState extends State<AddHabitScreen> {
                   ),
                 ),
                 // Send me notification h*.1
-                Container(
+                SizedBox(
                   height: height * .1,
                   width: width * .9,
                   child: Row(

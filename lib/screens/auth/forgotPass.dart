@@ -38,7 +38,7 @@ class _ForgotPassState extends State<ForgotPass> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Colors.black,
         ),
       ),
@@ -51,7 +51,7 @@ class _ForgotPassState extends State<ForgotPass> {
               width: width,
             ),
             // forgot password 0.05
-            Container(
+            SizedBox(
               height: height * .05,
               width: width * .6,
               child: FittedBox(
@@ -66,7 +66,7 @@ class _ForgotPassState extends State<ForgotPass> {
               ),
             ),
             // do not worry we are here for you .05
-            Container(
+            SizedBox(
               height: height * .05,
               width: width * .8,
               child: FittedBox(
@@ -84,7 +84,7 @@ class _ForgotPassState extends State<ForgotPass> {
               height: height * .05,
             ),
             // email field .1
-            Container(
+            SizedBox(
               width: width * .8,
               height: height * .1,
               child: TextField(
@@ -96,10 +96,9 @@ class _ForgotPassState extends State<ForgotPass> {
                     color:
                         (_emailFocusNode.hasFocus) ? Colors.black : Colors.grey,
                   ),
-                  focusedBorder: OutlineInputBorder(
+                  focusedBorder: const OutlineInputBorder(
                     borderSide: BorderSide(
                       width: 2,
-                      color: Colors.black,
                     ),
                   ),
                   labelText: (_emailFocusNode.hasFocus) ? "e-mail" : "\te-mail",
@@ -108,7 +107,7 @@ class _ForgotPassState extends State<ForgotPass> {
                         (_emailFocusNode.hasFocus) ? Colors.black : Colors.grey,
                     fontSize: 25,
                   ),
-                  border: OutlineInputBorder(
+                  border: const OutlineInputBorder(
                     borderSide: BorderSide(
                       width: 2,
                     ),
@@ -128,10 +127,10 @@ class _ForgotPassState extends State<ForgotPass> {
                 ),
                 height: height * .06,
                 width: width * .6,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.black,
                 ),
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 child: FittedBox(
                   fit: BoxFit.scaleDown,
                   child: Row(
@@ -147,7 +146,7 @@ class _ForgotPassState extends State<ForgotPass> {
                       SizedBox(
                         width: width * .05,
                       ),
-                      Icon(
+                      const Icon(
                         Icons.forward_to_inbox_outlined,
                         color: Colors.white,
                         size: 40,
@@ -162,7 +161,7 @@ class _ForgotPassState extends State<ForgotPass> {
               height: height * .1,
             ),
             // Login or sign up *.2
-            Container(
+            SizedBox(
               height: height * 0.1,
               width: width * .8,
               child: Row(
