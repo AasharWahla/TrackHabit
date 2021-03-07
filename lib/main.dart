@@ -12,7 +12,7 @@ void main() {
       ChangeNotifierProvider(
         create: (_) => ThemeProvider(),
       ),
-    ], child: MyApp()),
+    ], child: MyApp(),),
   );
 }
 
