@@ -23,6 +23,31 @@ class _TrackedDataScreenState extends State<TrackedDataScreen> {
     height = MediaQuery.of(context).size.height;
     width = MediaQuery.of(context).size.width;
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.menu),
+          color: (themeValue == 0) ? Colors.black : Colors.white,
+          iconSize: 30,
+          onPressed: () {
+            ZoomDrawer.of(context).open();
+          },
+        ),
+        backgroundColor: (themeValue == 0) ? Colors.white : Colors.black,
+        centerTitle: true,
+        elevation: 0,
+        title: SizedBox(
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              "Your Day So Far",
+              style: GoogleFonts.varelaRound(
+                fontSize: 40,
+                color: (themeValue == 0) ? lightFontColor : darkFontColor,
+              ),
+            ),
+          ),
+        ),
+      ),
       backgroundColor: (themeValue == 0) ? lightBgColor : darkBgColor,
       floatingActionButton: FloatingActionButton(
         heroTag: "addTask",
@@ -41,26 +66,9 @@ class _TrackedDataScreenState extends State<TrackedDataScreen> {
       body: Container(
         padding: EdgeInsets.only(top: height * 0.05),
         height: height * .9,
-        width: width,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              padding: EdgeInsets.only(left: width * .05),
-              height: height * .05,
-              width: width * .6,
-              child: FittedBox(
-                fit: BoxFit.scaleDown,
-                child: Text(
-                  "Your Progress",
-                  style: GoogleFonts.varelaRound(
-                    fontSize: 40,
-                    color: (themeValue == 0) ? lightFontColor : darkFontColor,
-                  ),
-                ),
-              ),
-            ),
-          ],
+          children: [],
         ),
       ),
     );

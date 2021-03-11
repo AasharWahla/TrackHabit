@@ -29,6 +29,31 @@ class _HomeScreenState extends State<HomeScreen> {
         mainScreen: CustomDrawerScreen(),
         slideWidth: MediaQuery.of(context).size.width * .5,
       ),
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.menu),
+          color: (themeValue == 0) ? Colors.black : Colors.white,
+          iconSize: 30,
+          onPressed: () {
+            ZoomDrawer.of(context).open();
+          },
+        ),
+        backgroundColor: (themeValue == 0) ? Colors.white : Colors.black,
+        centerTitle: true,
+        elevation: 0,
+        title: SizedBox(
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              "Your Day So Far",
+              style: GoogleFonts.varelaRound(
+                fontSize: 40,
+                color: (themeValue == 0) ? lightFontColor : darkFontColor,
+              ),
+            ),
+          ),
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
         heroTag: "addTask",
         onPressed: () {
@@ -55,23 +80,6 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Your Day So Far - Text - h * 0.05
-            // Your Day So Far - Text - h * 0.05
-            SizedBox(
-              height: height * .05,
-              width: width * .6,
-              child: FittedBox(
-                fit: BoxFit.scaleDown,
-                child: Text(
-                  "Your Day So Far",
-                  style: GoogleFonts.varelaRound(
-                    fontSize: 40,
-                    color: (themeValue == 0) ? lightFontColor : darkFontColor,
-                  ),
-                ),
-              ),
-            ),
-
             // Random Insipiration Quote - Regarding Book h*.15
             Container(
               width: width * .9,
